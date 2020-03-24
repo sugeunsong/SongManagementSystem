@@ -1,5 +1,5 @@
 
-public class Echo {
+public class MenuManager {
     public static void main(String[] args) {
     	System.out.println(" ### Song Management Menu ###");
     	System.out.println(" 1. Add Song");
