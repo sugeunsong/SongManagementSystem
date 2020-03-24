@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class TemperaturConverter {
+
+	public static void main(String[] args) {
+	    System.out.print("Input the Fahrenheit temperature :");
+        Scanner input = new Scanner(System.in);
+        int FahrenheitTemperature = input.nextInt();
+        double CelsiusTemperature = (5/9.0)*(FahrenheitTemperature - 32);
+        System.out.println(CelsiusTemperature);
+        	
+	}
+
+}
