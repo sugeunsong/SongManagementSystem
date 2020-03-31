@@ -5,11 +5,11 @@ public class Calculator {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Ã¹ ¹ø¤Š Á¤¼ö¸¦ ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì¨° ì •ìˆ˜ë¥¼ ì…ë ¥ : ");
 		int n1 = input.nextInt();
-		System.out.print("µÎ ¹ø¤Š Á¤¼ö¸¦ ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì¨° ì •ìˆ˜ë¥¼ ì…ë ¥ : ");
 		int n2 = input.nextInt();
-		System.out.print("¿¬»êÀÚ¸¦ ÀÔ·Â : ");
+		System.out.print("ì—°ì‚°ìë¥¼ ì…ë ¥ : ");
 		String a = input.next();
 		
 		switch (a) {
@@ -30,7 +30,7 @@ public class Calculator {
 			break;
 			
 		default:
-			System.out.println("¿¬»êÀÚ ¿À·ù");
+			System.out.println("ì—°ì‚°ì ì˜¤ë¥˜");
 		}
 		
 	}
