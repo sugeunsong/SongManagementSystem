@@ -1,0 +1,21 @@
+public class Song {
+
+	String name;
+	String singer;
+	String genre;
+	
+ 	public Song() {
+ 		
+ 	}
+ 	
+ 	public Song(String name, String singer, String genre) {
+ 		this.name = name;
+ 		this.singer = singer;
+ 		this.genre = genre;
+ 	}
+ 	
+ 	public void printInfo() {
+ 		System.out.println("name:" + this.name + " singer:" + this.singer + " genre:" + this.genre);
+ 	}
+	
+}
