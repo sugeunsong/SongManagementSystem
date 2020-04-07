@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class SongManager {
+	Song song;
+	Scanner input; 
+	SongManager(Scanner input) {
+		this.input = input;
+	}
+	public void addSong() {
+		song = new Song();
+		System.out.print("Song Name :");
+		song.name = input.next();
+		System.out.print("Singer :");
+		song.singer = input.next(); 
+		System.out.print("Song Genre :");
+		song.genre = input.next(); 
+	}
+	public void delateSong() {
+		System.out.print("Song Name : ");
+		String songName = input.next();
+		if (song != null) {
+			System.out.println("the song has not been registered");
+			return;
+		}
+	    if (song.name == songName) {
+	    	song = null;
+	    	System.out.println("the song is delated");
+	    }
+	}
+	
+	public void editSong() {
+		System.out.print("Song Name : ");
+		String songName = input.next();
+	    if (song.name == songName) {
+			int num = -1;
+			while (num != 5) {
+				System.out.println(" ## Song Info Edit Menu ## ");
+				System.out.println(" 1. Edit Song");
+				System.out.println(" 2. Edit Singer");
+				System.out.println(" 3. Edit Genre");
+				System.out.println(" 4. View Song");
+				System.out.println(" 5. Exit");
+				System.out.println("Select one number between 1 - 5:");
+				num = input.nextInt();
+				if(num == 1) {
+					System.out.print("Song Name :");
+					song.name = input.next();
+				}
+				else if(num == 2) {
+					System.out.print("Singer :");
+					song.singer = input.next(); 
+				}
+				else if(num == 3) {
+					System.out.print("Song Genre :");
+					song.genre = input.next();
+				}
+				else {
+					continue;
+				}
+			} 
+	    }
+	}
+	
+	public void viewSong() {
+		System.out.print("Song Name : ");
+		String songName = input.next();
+		if (song.name == songName) {
+	    	song.printInfo();
+	    }
+	
+	}
+} 
