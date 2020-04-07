@@ -1,0 +1,20 @@
+public class CarMain {
+
+	 public static void main(String[] args)
+	 {
+	  Car car1 = new Car(2015, "현대", 180);
+	  Car car2 = new Car(2018, "기아", 200);
+	  Car car3 = new Car(2020, "쌍용", 220);
+
+	  car1.change_speed(200);
+	
+	  car2.change_speed(240);
+
+	  car3.change_speed(225);
+
+	  car1.Print();
+	  car2.Print();
+	  car3.Print();
+
+	 }
+	}
