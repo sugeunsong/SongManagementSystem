@@ -1,0 +1,28 @@
+import java.util.HashSet;
+
+public class SetTest {
+
+	public static void main(String[] args) {
+		String poem = "Don't "
+				       + " When things go wrong, as they sometimes will " 
+				       + " When the road you're trudging seems all uphill, " 
+				       + " When the funds are low but the debts are high, " 
+				       + " And you want to smile but you have to sigh, " 
+				       + " When care is pressing you down a bit, "
+				       + " Rest if you must, but don't you quit! ";
+				       
+	    String[] words = poem.split("");
+	    HashSet<String> sets = new HashSet<String>();
+	    sets.add(" When things go wrong, as they sometimes will ");
+	    sets.add(" When the road you're trudging seems all uphill, ");
+	    sets.add(" When the funds are low but the debts are high, ");
+	    sets.add(" And you want to smile but you have to sigh, ");
+	    sets.add(" When care is pressing you down a bit, ");
+	    sets.add(" Rest if you must, but don't you quit! ");
+	    
+	    for (String set : sets) {
+		    System.out.println(set.toLowerCase());
+	    	
+	    }
+	}
+}
