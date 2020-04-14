@@ -10,7 +10,7 @@ public class MenuManager {
 			System.out.println(" 1. Add Song");
 			System.out.println(" 2. Delate Song");
 			System.out.println(" 3. Edit Song");
-			System.out.println(" 4. View Song");
+			System.out.println(" 4. View Songs");
 			System.out.println(" 5. Exit");
 			System.out.println("Select one number between 1 - 5:");
 			num = input.nextInt();
@@ -24,7 +24,7 @@ public class MenuManager {
 				songManager.editSong();
 			}
 			else if(num == 4) {
-				songManager.viewSong();
+				songManager.viewSongs();
 			}
 			else {
 				continue;
