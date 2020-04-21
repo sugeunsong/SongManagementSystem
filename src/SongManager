@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import song.KpopSong;
+import song.Song;
+
 public class SongManager {
 	ArrayList<Song> songs = new ArrayList<Song>();
 	Scanner input; 
@@ -8,29 +11,43 @@ public class SongManager {
 		this.input = input;
 	}
 	public void addSong() {
-		Song song = new Song();
-		System.out.print("Song Name :");
-		song.name = input.next();
-		System.out.print("Singer :");
-		song.singer = input.next(); 
-		System.out.print("Song Genre :");
-		song.genre = input.next(); 
-		songs.add(song);
+		int kind = 0;
+		Song song;
+		while (kind !=1 && kind !=2) {
+			System.out.print("1 for Pop ");
+			System.out.print("2 for Kpop ");
+			System.out.print("Select num for Song Kind between 1 and 2 :");
+			kind = input.nextInt();
+			if (kind == 1) {
+				song = new Song();
+				song.getUserInput(input);
+				songs.add(song);
+				break;
+			}
+			else if(kind == 2) {
+				song = new KpopSong();
+				song.getUserInput(input);
+				songs.add(song);
+				break;
+			}
+			else {
+				System.out.print("Select num for Song Kind between 1 and 2 :");
+			}
+		}
 	}
 	public void delateSong() {
 		System.out.print("Song Name : ");
 		String songName = input.next();
 		int index = -1;
 		for(int i = 0; i<songs.size(); i++) {
-			 if (songs.get(i).name.equals(songName)) {
+			 if (songs.get(i).getName().equals(songName)) {
 			    	index = i;
 			    	break;
 			    }
 		}
-		
+		 
 		if (index >= 0) {
-			songs.remove(index);
-			Song.numSongRegistered--;
+			songs.remove(index); 
 		    System.out.println("the song " + songName + " is delated");
 		}
 		else {
@@ -45,7 +62,7 @@ public class SongManager {
 		String songName = input.next();
 		for(int i = 0; i<songs.size(); i++) {
 			Song song = songs.get(i);
-			if (song.name.equals(songName)) {
+			if (song.getName().equals(songName)) {
 				int num = -1;
 				while (num != 5) {
 					System.out.println(" ## Song Info Edit Menu ## ");
@@ -58,15 +75,18 @@ public class SongManager {
 					num = input.nextInt();
 					if(num == 1) {
 						System.out.print("Song Name :");
-						song.name = input.next();
+						String name = input.next();
+						song.setName(name);
 					}
 					else if(num == 2) {
 						System.out.print("Singer :");
-						song.singer = input.next(); 
+						String singer = input.next(); 
+						song.setSinger(singer);
 					}
 					else if(num == 3) {
 						System.out.print("Song Genre :");
-						song.genre = input.next();
+						String genre = input.next();
+						song.setGenre(genre); 
 					}
 					else {
 						continue;
@@ -80,7 +100,7 @@ public class SongManager {
 	public void viewSongs() {
 //		System.out.print("Song Name : ");
 //		String songName = input.next();
-		System.out.println("# of registered songs:" + Song.numSongRegistered);
+		System.out.println("# of registered songs:" + songs.size());
 		for(int i = 0; i<songs.size(); i++) {
 			songs.get(i).printInfo();
 		}
