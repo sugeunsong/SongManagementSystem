@@ -1,24 +1,74 @@
-public class Song {
+package song;
 
-	String name;
-	String singer;
-	String genre;
-	static int numSongRegistered = 0;
+import java.util.Scanner;
+
+public class Song {
 	
- 	public Song() {
- 		numSongRegistered++;
- 		
+	protected SongKind kind = SongKind.Pop;
+	protected String name;
+	protected String singer;
+	protected String genre;
+
+	
+ 	public Song() {	
  	}
  	
  	public Song(String name, String singer, String genre) {
  		this.name = name;
  		this.singer = singer;
  		this.genre = genre;
- 		numSongRegistered++;
+
  	}
+ 	
+    public SongKind getKind() {
+		return kind;
+	}
+
+	public void setKind(SongKind kind) {
+		this.kind = kind;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSinger() {
+		return singer;
+	}
+
+	public void setSinger(String singer) {
+		this.singer = singer;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
  	
  	public void printInfo() {
  		System.out.println("name:" + this.name + " singer:" + this.singer + " genre:" + this.genre);
  	}
+ 	
+ 	public void getUserInput(Scanner input) {
+		System.out.print("Song Name :");
+		String name = input.next();
+		this.setName(name);
+		System.out.print("Singer :");
+		String singer = input.next(); 
+		this.setSinger(singer);
+		System.out.print("Song Genre :");
+		String genre = input.next(); 
+		this.setGenre(genre);
+		
+ 	}
 	
 }
+
