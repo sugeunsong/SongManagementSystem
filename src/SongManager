@@ -1,35 +1,47 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import song.JpopSong;
 import song.KpopSong;
+import song.PopSong;
 import song.Song;
+import song.SongInput;
+import song.SongKind;
 
 public class SongManager {
-	ArrayList<Song> songs = new ArrayList<Song>();
+	ArrayList<SongInput> songs = new ArrayList<SongInput>();
 	Scanner input; 
 	SongManager(Scanner input) {
 		this.input = input;
 	}
 	public void addSong() {
 		int kind = 0;
-		Song song;
+		SongInput songInput; 
 		while (kind !=1 && kind !=2) {
-			System.out.print("1 for Pop ");
-			System.out.print("2 for Kpop ");
-			System.out.print("Select num for Song Kind between 1 and 2 :");
+			System.out.println("1 for Pop ");
+			System.out.println("2 for Kpop ");
+			System.out.println("3 for Jpop ");
+			System.out.println("Select num 1, 2, or 3 for Song Kind :");
 			kind = input.nextInt();
 			if (kind == 1) {
-				song = new Song();
-				song.getUserInput(input);
-				songs.add(song);
-				break;
+				songInput = new PopSong(SongKind.Pop);
+				songInput.getUserInput(input);
+				songs.add(songInput); 
+				break; 
 			}
 			else if(kind == 2) {
-				song = new KpopSong();
-				song.getUserInput(input);
-				songs.add(song);
+				songInput = new KpopSong(SongKind.Kpop);
+				songInput.getUserInput(input);
+				songs.add(songInput);
 				break;
 			}
+			else if(kind == 3) {
+				songInput = new JpopSong(SongKind.Jpop);
+				songInput.getUserInput(input);
+				songs.add(songInput);
+				break;
+			}
+		
 			else {
 				System.out.print("Select num for Song Kind between 1 and 2 :");
 			}
@@ -38,6 +50,11 @@ public class SongManager {
 	public void delateSong() {
 		System.out.print("Song Name : ");
 		String songName = input.next();
+		int index = findIndex(songName);
+	    removefromsongs(index, songName); 
+	}
+	
+	public int findIndex(String songName) {
 		int index = -1;
 		for(int i = 0; i<songs.size(); i++) {
 			 if (songs.get(i).getName().equals(songName)) {
@@ -45,51 +62,43 @@ public class SongManager {
 			    	break;
 			    }
 		}
-		 
+		return index;
+		
+	}
+	public int removefromsongs(int index, String songName) {
 		if (index >= 0) {
 			songs.remove(index); 
 		    System.out.println("the song " + songName + " is delated");
+		    return 1;
 		}
 		else {
 			System.out.println("the song has not been registered");
-			return;
+			return -1;
 		}
-
 	}
 	
 	public void editSong() {
 		System.out.print("Song Name : ");
 		String songName = input.next();
 		for(int i = 0; i<songs.size(); i++) {
-			Song song = songs.get(i);
+			SongInput song = songs.get(i);
 			if (song.getName().equals(songName)) {
 				int num = -1;
 				while (num != 5) {
-					System.out.println(" ## Song Info Edit Menu ## ");
-					System.out.println(" 1. Edit Song");
-					System.out.println(" 2. Edit Singer");
-					System.out.println(" 3. Edit Genre");
-					System.out.println(" 4. View Song");
-					System.out.println(" 5. Exit");
-					System.out.println("Select one number between 1 - 5:");
+					showEditMenu();
 					num = input.nextInt();
-					if(num == 1) {
-						System.out.print("Song Name :");
-						String name = input.next();
-						song.setName(name);
-					}
-					else if(num == 2) {
-						System.out.print("Singer :");
-						String singer = input.next(); 
-						song.setSinger(singer);
-					}
-					else if(num == 3) {
-						System.out.print("Song Genre :");
-						String genre = input.next();
-						song.setGenre(genre); 
-					}
-					else {
-						continue;
+					switch(num) {
+					case 1:
+						song.setSongName(input);
+						break;
+					case 2:
+						song.setSongSinger(input);
+						break;
+					case 3:
+						song.setSongGenre(input);
+						break;
+					default:
+						continue; 
 					}
 				} 
 				break;
@@ -104,5 +113,15 @@ public class SongManager {
 		for(int i = 0; i<songs.size(); i++) {
 			songs.get(i).printInfo();
 		}
+	}
+	
+	public void showEditMenu() {
+		System.out.println(" ## Song Info Edit Menu ## ");
+		System.out.println(" 1. Edit Song");
+		System.out.println(" 2. Edit Singer");
+		System.out.println(" 3. Edit Genre");
+		System.out.println(" 4. View Song");
+		System.out.println(" 5. Exit");
+		System.out.println("Select one number between 1 - 5:");
 	}
 } 
