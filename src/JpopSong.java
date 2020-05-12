@@ -2,7 +2,7 @@ package song;
 
 import java.util.Scanner;
 
-public class JpopSong extends Song {
+public class JpopSong extends BrandNewSong  {
 	
 	protected String englishSongName;
 	protected String englishSingerName;
@@ -12,22 +12,20 @@ public class JpopSong extends Song {
  	}
 		
 	public void getUserInput(Scanner input) {
-		System.out.print("Song Name :");
-		String name = input.next();
-		this.setName(name);
+		setSongName(input);
+		setSongSinger(input);
+		setSongEnglishTitlewithYN(input);
+		setSingerEnglishNamewithYN(input);
 		
-		System.out.print("Singer :");
-		String singer = input.next(); 
-		this.setSinger(singer);
-		
+ 	} 
+	
+	public void setSongEnglishTitlewithYN(Scanner input) {
 		char answer = 'x';
 		while(answer !='y' && answer !='Y' && answer !='n' && answer !='N') {
 			System.out.print("Does this song have an english title? (Y/N)");
 	        answer = input.next().charAt(0);
 		    if (answer == 'y' || answer == 'Y') {
-			    System.out.print("english title :");
-			    String Name = input.next(); 
-			    this.setName(name);
+		    	setSongName(input);
 			    break;
 		    }
 		    else if (answer == 'n' || answer =='N' ) {
@@ -36,16 +34,16 @@ public class JpopSong extends Song {
 		    }
 		    else {
 		    }
-		}
-		
-		answer = 'x';
+		}	
+	}
+	
+	public void setSingerEnglishNamewithYN(Scanner input) {
+		char answer = 'x';
 		while(answer !='y' && answer !='Y' && answer !='n' && answer !='N') {
 			System.out.print("Does this singer have an english name? (Y/N)");
 	        answer = input.next().charAt(0);
 		    if (answer == 'y' || answer == 'Y') {
-			    System.out.print("english name :");
-			    String Singer = input.next(); 
-			    this.setSinger(singer);
+		    	setSongSinger(input);
 			    break;
 		    }
 		    else if (answer == 'n' || answer =='N' ) {
@@ -55,22 +53,13 @@ public class JpopSong extends Song {
 		    else {
 		    }
 		}
- 	} 
+		
+	}
 	
 	public void printInfo() {
- 		String skind = "none";
- 		switch(this.kind) {
- 		case Pop:
- 			skind = "Pop";
- 			break;
- 		case Kpop:
- 			skind = "Kpop";
- 			break;
- 		case Jpop:
- 			skind = "Jpop";
- 			break;
- 		}
+		String skind = getkindString(); 
  		System.out.println("kind:" + skind + " name:" + this.name + " singer:" + this.singer + " genre:" + this.genre +  " english title :" + this.getName() + " singer's english name :" + this.getSinger());
  	}
+	
 
 }
