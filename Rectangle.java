@@ -1,6 +1,6 @@
-package shape;
+package interfaceShape;
 
-public class Rectangle extends Shape {
+public class Rectangle implements Shape {
 	private int length;
 	private int width;
 	
@@ -8,6 +8,8 @@ public class Rectangle extends Shape {
 		this.length = length;
 		this.width = width;
 	}
+
+	@Override
 	public void getArea() {
 		System.out.println("The area of the Rectangle is " + this.length*this.width);
 	}

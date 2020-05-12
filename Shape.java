@@ -1,8 +1,5 @@
-package shape;
+package interfaceShape;
 
-abstract public class Shape {
-	private int size;
-	
+public interface Shape {
 	public abstract void getArea();
-
 }

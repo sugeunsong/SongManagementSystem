@@ -1,16 +1,19 @@
-package shape;
+package interfaceShape;
 
-abstract public class ShapeDemo {
+public class ShapeDemo {
 
 	public static void main(String[] args) {
+		Shape s1 = new Triangle(3, 4);
+		s1.getArea();
+				
+		Shape s2 = new Rectangle(4,4);
+		s2.getArea();		
 		
-		Shape[] myShape = new Shape[3];
-		myShape[0] = new Triangle(3,4);
-		myShape[1] = new Rectangle(4,4);
-		myShape[2] = new Circle(5);
+		Shape s3 = new Circle(5);
+		s3.getArea();
 		
-		for (int i = 0; i<3; i++) {
-			myShape[i].getArea();
-		}
+	}
+
+	private void getArea() {	
 	}
 }
