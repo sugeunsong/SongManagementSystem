@@ -2,7 +2,7 @@ package song;
 
 import java.util.Scanner;
 
-public class Song {
+public abstract class  Song implements SongInput {
 	
 	protected SongKind kind = SongKind.Pop;
 	protected String name;
@@ -64,34 +64,42 @@ public class Song {
 		this.genre = genre;
 	}
 
- 	public void printInfo() {
- 		String skind = "none";
- 		switch(this.kind) {
- 		case Pop:
- 			skind = "Pop";
- 			break;
- 		case Kpop:
- 			skind = "Kpop";
- 			break;
- 		case Jpop:
- 			skind = "Jpop";
- 			break;
- 		}
- 		System.out.println("kind:" + skind + " name:" + this.name + " singer:" + this.singer + " genre:" + this.genre);
- 	}
+ 	public abstract void printInfo();
  	
- 	public void getUserInput(Scanner input) {
+ 	public void setSongName(Scanner input) { 
 		System.out.print("Song Name :");
 		String name = input.next();
 		this.setName(name);
+	}
+	
+	public void setSongSinger(Scanner input) { 
 		System.out.print("Singer :");
 		String singer = input.next(); 
 		this.setSinger(singer);
-		System.out.print("Song Genre :");
+	}
+	
+	public void setSongGenre(Scanner input) { 
+		System.out.print("Genre :");
 		String genre = input.next(); 
 		this.setGenre(genre);
-		
- 	}
+	}
 	
+	public String getkindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Pop:
+			skind = "Pop";
+			break;
+		case Kpop:
+			skind = "Kpop";
+			break;
+		case Jpop:
+			skind = "Jpop";
+			break;
+		default:
+		}
+		return skind;
+	}
 }
+
 
