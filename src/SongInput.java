@@ -2,6 +2,8 @@ package song;
 
 import java.util.Scanner;
 
+import exception.GenreFormatException;
+
 public interface SongInput {
 	
 	public String getName();
@@ -10,7 +12,7 @@ public interface SongInput {
 	
 	public void setSinger(String singer);
 	
-	public void setGenre(String genre);
+	public void setGenre(String genre) throws GenreFormatException;
 	
 	public void getUserInput(Scanner input);
 	

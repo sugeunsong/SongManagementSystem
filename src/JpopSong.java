@@ -16,6 +16,7 @@ public class JpopSong extends BrandNewSong  {
 		setSongSinger(input);
 		setSongEnglishTitlewithYN(input);
 		setSingerEnglishNamewithYN(input);
+		setSongGenre(input);
 		
  	} 
 	
