@@ -1,10 +1,16 @@
 package song;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.GenreFormatException;
 
-public abstract class  Song implements SongInput {
+public abstract class  Song implements SongInput, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4455917464473979496L;
 	
 	protected SongKind kind = SongKind.Pop;
 	protected String name;

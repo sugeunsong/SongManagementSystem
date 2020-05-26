@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -5,13 +6,21 @@ import java.util.Scanner;
 import song.JpopSong;
 import song.KpopSong;
 import song.PopSong;
-import song.Song;
 import song.SongInput;
 import song.SongKind;
 
-public class SongManager {
+public class SongManager implements Serializable {
+	
+	 public void setScanner(Scanner input) {
+	        this.input = input;
+	    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2239842061620390645L;
+	
 	ArrayList<SongInput> songs = new ArrayList<SongInput>();
-	Scanner input; 
+	transient Scanner input; 
 	SongManager(Scanner input) {
 		this.input = input;
 	}
