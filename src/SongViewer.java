@@ -1,13 +1,19 @@
 package gui;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class SongViewer extends JFrame {
+public class SongViewer extends JPanel {
+	
+	WindowFrame frame;
 
-	public SongViewer() {
+	public SongViewer(WindowFrame frame) {
+		this.frame = frame;
+		
+		
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Name");
 		model.addColumn("Singer");
@@ -19,11 +25,6 @@ public class SongViewer extends JFrame {
 		JScrollPane sp = new JScrollPane(tabel);
 		
 		this.add(sp);
-		
-		this.setSize(300, 300); 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
-		this.setVisible(true);
 		 
 		
 	}

@@ -7,10 +7,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class SongAdder extends JFrame {
+public class SongAdder extends JPanel {
+	
+	WindowFrame frame;
 	
 
-	public SongAdder( ) {
+	public SongAdder(WindowFrame frame ) {
+		this.frame = frame;
+		
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -38,23 +43,10 @@ public class SongAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(panel);
-		this.setContentPane(panel);
-		this.setVisible(true);
-		
-		
-		
-		
-		
-		
-		
-	}
 
-	private void setDefaultCloseOperation(JPanel panel) {
-		// TODO Auto-generated method stub
+		this.add(panel);
+		this.setVisible(true);		
 		
 	}
-	
 
 }
