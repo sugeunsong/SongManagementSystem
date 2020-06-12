@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,6 +7,7 @@ import java.util.Scanner;
 import song.JpopSong;
 import song.KpopSong;
 import song.PopSong;
+import song.Song;
 import song.SongInput;
 import song.SongKind;
 
@@ -132,6 +134,14 @@ public class SongManager implements Serializable {
 		for(int i = 0; i<songs.size(); i++) {
 			songs.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return songs.size();
+	}
+	
+	public SongInput get(int index) {
+		return (Song) songs.get(index);
 	}
 
 	public void showEditMenu() {

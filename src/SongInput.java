@@ -10,7 +10,11 @@ public interface SongInput {
 	
 	public void setName(String name);
 	
+	public String getSinger();
+	
 	public void setSinger(String singer);
+	
+	public String getGenre();
 	
 	public void setGenre(String genre) throws GenreFormatException;
 	

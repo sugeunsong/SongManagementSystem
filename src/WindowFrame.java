@@ -2,23 +2,30 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import manager.SongManager;
 
 public class WindowFrame extends JFrame {
 	
-
+	SongManager songManager ;
+	
 	MenuSelection menuselection ;
 	SongAdder songadder ;
 	SongViewer songviewer ;
+
 	
-	public WindowFrame() {
-		this.menuselection = new MenuSelection(this);
-		this.songadder = new SongAdder(this);
-		this.songviewer = new SongViewer(this);
-			
+	
+	public WindowFrame(SongManager songManager) {
 		this.setSize(500, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("My Frame");
 		
-		this.setupPanel(menuselection);	
+		this.songManager = songManager;	
+		menuselection = new MenuSelection(this);
+		songadder = new SongAdder(this);
+		songviewer = new SongViewer(this, this.songManager);
+
+		
+		this.add(menuselection);	
 				
 		this.setVisible(true);
 	}
